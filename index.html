@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HomePage</title>
+        <meta charset="UTP-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+            html{
+                scroll-behavior: smooth;
+            }
+            body {
+                background: linear-gradient(to right, #f4f4f4, #ffffff);
+                font-family: Arial, sans-serif;
+                margin: 0;
+                display: flex;
+                min-height: calc(100vh - 60px);
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100vh;
+                background: #1e1e2f;
+                color: white;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .logo {
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 25px;
+            }
+            .profile {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            .profile-text {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            .profile-text h3,
+            .profile-text p,
+            .profile-text button {
+                margin: 0;
+            }
+            .profile-text h3 {
+                font-size: 22px;
+            }
+            .profile-text button {
+                padding: 6px 15px 6px 15px;
+                background-color: #1e1e2f;
+                color: white;
+                border: 1px solid white;
+                margin-top: 4px;
+            }
+            .profile-text p {
+                font-weight: 300px;
+                font-size: 14px;
+            }
+            .profile img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .search {
+                background-color: #1e1e2f;
+                position: relative;
+                margin-bottom: 20px;
+                
+            }
+            .search input {
+                width: 100%;
+                padding: 10px 10px 10px 35px;
+                border-radius: 20px;
+                border: none;
+                box-sizing: border-box;
+                outline: none;
+            }
+            .search input:focus {
+                outline: 2px solid #4d90fe;
+            }
+            .search i {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                color: black;
+            }
+            .me:hover,
+            .skil:hover,
+            .vimi:hover,
+            .kon:hover {
+                transform: scale(1.05);
+                background-color: #5a5a71;
+            }
+            .me {
+                align-items: center;
+                padding: 15px;
+                background-color: #1e1e2f;
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .me i {
+                font-size: 17px; 
+            }
+            .kiri span {
+                color: white;
+                margin: 10px;
+            }
+            .skil {
+                align-items: center;
+                padding: 15px;
+                background-color: #1e1e2f;
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .skil i {
+                font-size: 17px; 
+            }
+            .kiri0 span {
+                color: white;
+                margin: 10px;
+            }
+            .vimi {
+                align-items: center;
+                padding: 15px;
+                background-color: #1e1e2f;
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .vimi i{
+                font-size: 17px;
+            }
+            .kiri1 span{
+                color: white;
+                margin: 10px;
+            }
+            .kon {
+                align-items: center;
+                padding: 15px;
+                background-color: #1e1e2f;
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .kon i {
+                font-size: 17px;
+            }
+            .kiri2 span {
+                color: white;
+                margin: 10px;
+            }
+            .menu {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .main {
+                flex: 1;
+                border-radius: 15px;
+                padding: 30px;
+                margin: 30px;
+                margin-left: 310px;
+                height: 2850px;
+                background-color: #1e1e2f;
+                scroll-behavior: smooth;
+            }
+            .about {
+                display: flex;
+                flex-direction: column;
+            }
+            .back {
+                display: flex;
+                justify-content: flex-start;
+            }
+            .front {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .tek {
+                padding: 20px;
+                border-radius: 10px;
+                background-color: white;
+                max-width: 500px;
+            }
+            .garis {
+                color: #c084fc;
+                padding-bottom: 3px;
+                border-bottom: 3px solid #5a5a71;
+            }
+            .bawah {
+                color: #c084fc;
+                border-bottom: 3px solid #5a5a71;
+                padding-bottom: 3px;
+                padding-top: 10px;
+            }
+            .skill img {
+                width: 300px;
+            }
+            .ml {
+                padding:px;
+                background: linear-gradient(135deg, #e3f2fd, #ffffff);
+                display: flex;
+                align-items: center;
+                border-radius: 10px;
+                margin: 100px 100px 100px 20px;
+            }
+            .last {
+                color: #c084fc;
+                border-bottom: 3px solid #5a5a71;
+            }
+            .tua {
+                display: flex;
+            }
+            .fish {
+                margin: 10px auto;
+                background-color: white;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 3px solid #5a5a71;
+            }
+            .visi-sub {         
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+            }
+            .fish span {
+                color: #c084fc;
+                font-size: 30px;
+            }
+            .hubungi {
+               
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+              
+            }
+            .sm {
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                padding: 20px;
+                font-size: 30px;
+                gap: 10px;
+                margin: 12px auto;
+            }
+            .cm {
+              
+                color: white;
+                width: 500px;
+                margin: 12px auto;
+                display: flex;
+                align-items: center;
+                
+            }
+            .wa {
+                 background: linear-gradient(135deg, #25D366, #128C7E);
+            }
+            .ig {
+                 background: linear-gradient(135deg, #feda75, #d62976, #962fbf);
+            }
+            .mail {
+                 background: linear-gradient(135deg, #ea4335, #ff6d00);
+            }
+            .wa,
+            .ig,
+            .mail {
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            }
+            .wa:hover,
+            .ig:hover,
+            .mail:hover {
+            transform: scale(1.05);
+            }
+            .dm {
+                color: #c084fc;
+                border-bottom: 3px solid #5a5a71;
+            }
+           .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: white;
+            background-color: #1e1e2f; 
+            margin-top: 40px;
+            }
+            a {
+            color: white;        
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo">Club</div>
+            <div class="profile">
+                <img src="images/pp.jpeg" alt="profile picture">
+                <div class="profile-text">
+                    <h3>Rafli</h3>
+                    <p>Halomoan</p>
+                    <button>P-4 Taj-2</button>
+                </div>
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass" ></i>
+                <input type="text" id="muga" placeholder="Search">
+            </div>
+            <div class="menu">
+                <a href="#aboutsec">
+                    <button class="me menu-item" data-name="about me">
+                        <div class="kiri">
+                            <i class="fa-solid fa-chart-pie" style="color: #c084fc;"></i>
+                            <span>About Me</span>
+                        </div>
+                        <div class="kanan">
+                            <i class="fa-solid fa-chevron-right" style="color: #c084fc;"></i>
+                        </div>
+                    </button>
+                </a>
+                <a href="#skillsec">
+                    <button class="skil menu-item" data-name="skill">
+                        <div class="kiri0">
+                            <i class="fas fa-tools" style="color: #c084fc;"></i>
+                            <span>Skill</span>
+                        </div>
+                        <div class="kanan0">
+                            <i class="fa-solid fa-chevron-right" style="color: #c084fc;"></i>
+                        </div>
+                    </button>
+                </a>
+                <a href="#pbsec">
+                    <button class="vimi menu-item" data-name="visi & misi">
+                        <div class="kiri1">
+                            <i class="fas fa-rocket" style="color: #c084fc;"></i>
+                            <span>Visi & Misi</span>
+                        </div>
+                        <div class="kanan1">
+                            <i class="fa-solid fa-chevron-right" style="color: #c084fc;"></i>
+                        </div>
+                    </button>
+                </a>
+                <a href="#consec">
+                    <button class="kon menu-item" data-name="contact me">
+                        <div class="kiri2">
+                            <i class="fa-solid fa-paper-plane" style="color: #c084fc;"></i>
+                            <span>Contact Me</span>
+                        </div>
+                        <div class="kanan2">
+                            <i class="fa-solid fa-chevron-right" style="color: #c084fc;"></i>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="main">
+            <h1 style="color: white;">Selamat Datang!</h1>
+            <section class="about" id="aboutsec">
+                <h2 class="garis">About Me 💡</h2>
+                <div class="back">
+                    <div class="tek">
+                        <h3 style="color: #c084fc;">1. Perkenalan 👋</h3>
+                        <p>Hallo! Saya Rafli, seorang pelajar yang sedang belajar dunia pemrograman dan desain web. Saya tertarik pada teknologi sejak kecil, dan sekarang mulai fokus belajar HTML, CSS, dan JavaScript.</p>
+                    </div>
+                </div>
+                <div class="front">
+                    <div class="tek">
+                        <h3 style="color: #c084fc;">2. Minat 💻 </h3>
+                        <p>Saya ingin masuk jurusan PPLG karena saya ingin menjadi developer profesional. Saya suka pada web development, logika pemrograman, dan User Interface (UI).</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="tek">
+                        <h3 style="color: #c084fc;">3. Tujuan 🎯</h3>
+                        <p>Saya ingin masuk jurusan PPLG dikarenakan saya ingin mengembangkan minat ku dibidang web development agar bisa menjadi web development yang bisa membangun proyek yang baik dan benar</p>
+                    </div>
+                </div>
+                <div class="front">
+                    <div class="tek">
+                        <h3 style="color: #c084fc;">4. Hobby 🧠</h3>
+                        <p>Selain ngoding, saya juga senang bermain game dan belajar desain UI. Web ini saya buat sebagai salah satu portofolio dan bukti keseriusan saya untuk masuk ke dunia programming.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="skill" id="skillsec">
+                <h2 class="bawah">Skill</h2>
+                <div class="ml">
+                    <img src="images/pngegg.png" alt="Gambar HTML">
+                    <p>HTML (HyperText Markup Language) adalah bahasa yang digunakan untuk membangun struktur dasar sebuah halaman web. Saya memahami cara membuat halaman HTML dengan elemen-elemen seperti div, img, a, dan form input. HTML adalah fondasi penting sebelum mempelajari CSS dan JavaScript.</p>
+                </div>
+                <div class="ml">
+                    <img src="images/CSS-Logo-PNG-Symbol-for-Web-Development-Transparent.png" alt="Gambar CSS">
+                    <p>CSS membantu membuat tampilan web menjadi lebih menarik,saya sudah belajar cara mengubah warna, mengatur jarak antar elemen, menggunakan flexbox, dsb. namun saya sadar banyak hal yang belum saya kuasai seperti responsive design, atau layout yang kompleks. Oleh karena itu saya terus belajar sambil mencoba langsung di web kali ini</p>
+                </div>
+            </section>
+            <section class="pb" id="pbsec">
+                <h2 class="last">Visi & Misi</h2>
+                <div class="tua">
+                    <div class="fish">
+                        <span><h3>Visi</h3></span>
+                        <div class="visi-sub">
+                            <h3>📌 Target Jangka Pendek</h3>
+                            <ul>
+                                <li>✅ Menguasai HTML, CSS, dan JavaScript dasar</li>
+                                <li>✅ Membuat portofolio web pribadi</li>
+                                <li>✅ Belajar React atau framework ringan</li>
+                            </ul>
+                        </div>
+                        <div class="visi-sub">
+                            <h3>🚀 Target Jangka Panjang</h3>
+                            <ul>
+                                <li>🌟 Menjadi bagian dari tim proyek nyata</li>
+                                <li>🌍 Ikut lomba IT tingkat kota/nasional</li>
+                                <li>🧑‍🏫 Mampu berbagi ilmu ke teman lain</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="fish">
+                        <span><h3>Misi</h3></span>
+                        <div class="visi-sub">
+                            <h3>⚡️ Misi</h3>
+                            <ul>
+                                <li>📚 Terus belajar dan mendalami HTML, CSS, dan JavaScript</li>
+                                <li>🧠 Melatih logika dengan mengerjakan project atau tantangan kecil</li>
+                                <li>💼 Membangun portofolio digital sebagai bukti nyata kemampuan</li>
+                                <li>🤝 Berkolaborasi dan bertanya saat mengalami kesulitan</li>
+                                <li>🎯 Menetapkan target belajar tiap minggu agar konsisten</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="con" id="consec">
+                <h2 class="dm">Contact Me</h2>
+                <div class="hubungi">
+                    <div class="cm">
+                        <h3>Terima kasih telah mengunjungi portofolio saya! Jika tertarik untuk ngobrol seputar coding, desain, atau ingin tanya-tanya tentang proses belajarku, jangan ragu untuk menghubungi saya.</h3>
+                    </div>
+                    <div class="sm">
+                        <div class="wa">
+                            <a href="https://wa.me/6285693342523">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span>Whatsapp</span>
+                            </a>
+                        </div>
+                        <div class="ig">
+                            <a href="https://www.instagram.com/hallowmoan_14/">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span> 
+                            </a>                          
+                        </div>
+                        <div class="mail">
+                            <a href="mailto:raflizamoon@gmail.com">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Gmail</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <p>© 2025 Rafli. Dibuat dengan ❤️ dan niat.</p>
+            </footer>
+        </div>
+        <script>
+            const input = document.getElementById("muga");
+            const buttons = document.querySelectorAll(".menu-item");
+
+            input.addEventListener("input", () => {
+                const keyword = input.value.toLowerCase();
+
+                buttons.forEach(button => {
+                const name = button.dataset.name.toLowerCase();
+                if (name.includes(keyword)) {
+                    button.style.display = "flex";
+                } else {
+                    button.style.display = "none";
+                }
+                });
+            });
+        </script>
+    </body>
+</html>
